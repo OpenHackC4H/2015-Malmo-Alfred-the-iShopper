@@ -10,13 +10,16 @@
 
 @interface ViewController ()
 
+@property BOOL isRecording;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.isRecording = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,6 +30,17 @@
 -(IBAction)voiceButtonPressed:(id)sender {
     NSLog(@"Voice button pressed");
     
+    self.isRecording = !self.isRecording;
+    
+    UIImage *buttonImage;
+    
+    if(self.isRecording) {
+        buttonImage = [UIImage imageNamed:@"redButton"];
+    } else {
+        buttonImage = [UIImage imageNamed:@"greenButton"];
+    }
+    
+    [self.voiceButton setImage:buttonImage forState:UIControlStateNormal];
 }
 
 @end
