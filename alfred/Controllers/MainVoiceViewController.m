@@ -7,6 +7,7 @@
 //
 
 #import "MainVoiceViewController.h"
+#import "AudioManager.h"
 
 #define TIME_DELAY 3.0
 
@@ -30,8 +31,6 @@
 }
 
 - (void) changeButtonImage {
-    self.isRecording = !self.isRecording;
-    
     UIImage *buttonImage;
     
     if(self.isRecording) {
@@ -45,12 +44,24 @@
 
 #pragma mark - Actions
 
--(IBAction)voiceButtonPressed:(id)sender {
-    NSLog(@"Voice button pressed");
+- (IBAction)voiceButtonPressed:(id)sender {
+    [self recordInput];
+    [self performSelector:@selector(playResult) withObject:nil afterDelay:2.0];
+}
+
+- (void) recordInput {
+    self.isRecording = YES;
+    [self changeButtonImage];
+}
+
+- (void) playResult {
+    self.isRecording = NO;
     [self changeButtonImage];
     
-    [self performSelector:@selector(changeButtonImage) withObject:nil afterDelay:TIME_DELAY];
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource: @"bread_result" ofType: @"mp3"];
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     
+    [[AudioManager sharedManager] playSoundForFileURL:soundFileURL withDelegate:nil];
 }
 
 @end

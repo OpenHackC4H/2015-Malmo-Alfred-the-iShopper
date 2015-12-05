@@ -10,4 +10,8 @@
 
 @interface AudioManager : NSObject
 
++(AudioManager *) sharedManager;
+
+- (void) playSoundForFileURL:(NSURL *) fileURL withDelegate:(id) delegate;
+
 @end
