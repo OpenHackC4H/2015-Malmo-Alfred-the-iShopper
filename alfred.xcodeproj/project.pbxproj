@@ -110,10 +110,9 @@
 		3D2C9A961C1226E500ED4513 /* alfred */ = {
 			isa = PBXGroup;
 			children = (
+				3D8B55961C1323F90000041A /* Controllers */,
 				3D2C9A9A1C1226E500ED4513 /* AppDelegate.h */,
 				3D2C9A9B1C1226E500ED4513 /* AppDelegate.m */,
-				3D2C9A9D1C1226E500ED4513 /* ViewController.h */,
-				3D2C9A9E1C1226E500ED4513 /* ViewController.m */,
 				3D2C9AA01C1226E500ED4513 /* Main.storyboard */,
 				3D2C9AA61C1226E500ED4513 /* Assets.xcassets */,
 				3D2C9AA81C1226E500ED4513 /* LaunchScreen.storyboard */,
@@ -148,6 +147,15 @@
 				3D2C9AC11C1226E500ED4513 /* Info.plist */,
 			);
 			path = alfredUITests;
+			sourceTree = "<group>";
+		};
+		3D8B55961C1323F90000041A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3D2C9A9D1C1226E500ED4513 /* ViewController.h */,
+				3D2C9A9E1C1226E500ED4513 /* ViewController.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		7B4C2621F80950687534E24A /* Frameworks */ = {
