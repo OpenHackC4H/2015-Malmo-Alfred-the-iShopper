@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
@@ -20,7 +21,7 @@
                                 <rect key="frame" x="154" y="154" width="292" height="292"/>
                                 <state key="normal" image="greenButton"/>
                                 <connections>
-                                    <action selector="voiceButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eQK-Lr-A5b"/>
+                                    <action selector="voiceButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CSu-hs-M7o"/>
                                 </connections>
                             </button>
                         </subviews>

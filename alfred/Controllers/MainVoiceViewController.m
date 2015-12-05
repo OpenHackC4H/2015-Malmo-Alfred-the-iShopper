@@ -8,6 +8,7 @@
 
 #import "MainVoiceViewController.h"
 #import "AudioManager.h"
+#import "RestManager.h"
 
 #define TIME_DELAY 3.0
 
@@ -47,6 +48,14 @@
 - (IBAction)voiceButtonPressed:(id)sender {
     [self recordInput];
     [self performSelector:@selector(playResult) withObject:nil afterDelay:2.0];
+}
+
+- (void) postRecording {
+    RestManager *restManager = [RestManager sharedManager];
+    [restManager GET:@"/test" success:^(NSDictionary *result) {
+        NSLog(@"Success posting recording");
+    } failure:^(NSError *error) {
+    }];
 }
 
 - (void) recordInput {
