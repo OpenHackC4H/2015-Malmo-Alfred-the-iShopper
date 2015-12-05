@@ -133,7 +133,6 @@
 				3D2C9AA01C1226E500ED4513 /* Main.storyboard */,
 				3D2C9AA61C1226E500ED4513 /* Images.xcassets */,
 				3D2C9AA81C1226E500ED4513 /* LaunchScreen.storyboard */,
-				3D2C9AAB1C1226E500ED4513 /* Info.plist */,
 				3D2C9AA31C1226E500ED4513 /* alfred.xcdatamodeld */,
 				3D2C9A971C1226E500ED4513 /* Supporting Files */,
 			);
@@ -143,6 +142,7 @@
 		3D2C9A971C1226E500ED4513 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3D2C9AAB1C1226E500ED4513 /* Info.plist */,
 				3D8B55971C1324580000041A /* Assets */,
 				3D2C9A981C1226E500ED4513 /* main.m */,
 			);

@@ -47,15 +47,19 @@
 
 - (IBAction)voiceButtonPressed:(id)sender {
     [self recordInput];
+    [self postRecording];
     [self performSelector:@selector(playResult) withObject:nil afterDelay:2.0];
 }
 
 - (void) postRecording {
     RestManager *restManager = [RestManager sharedManager];
+    
     [restManager GET:@"/test" success:^(NSDictionary *result) {
-        NSLog(@"Success posting recording");
+        NSLog(@"Succesfully posted recording. %@", [result description]);
     } failure:^(NSError *error) {
+        NSLog(@"Error posting recording. %@", [error description]);
     }];
+     
 }
 
 - (void) recordInput {

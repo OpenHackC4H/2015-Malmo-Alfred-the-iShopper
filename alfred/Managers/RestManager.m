@@ -22,19 +22,29 @@
 static RestManager *manager = nil;
 AFHTTPRequestOperationManager *httpManager;
 
+
 +(RestManager *) sharedManager {
     static dispatch_once_t pred;
     dispatch_once(&pred, ^{
         manager = [[RestManager alloc] init];
     });
+    NSLog(@"Getting rest manager");
+    NSLog(@"HttpManager: %@", [httpManager description]);
     return manager;
 }
 
-- (instancetype) init {
-    //self.baseURL = @"http://188.166.113.59:8080";
-    self.baseURL = @"http://http://10.0.201.177:8080";
-    httpManager = [AFHTTPRequestOperationManager manager];
-    return manager;
+- (id) init {
+    self = [super init];
+    
+    if(self) {
+        self.baseURL = @"http://alfred.eu-gb.mybluemix.net";
+        httpManager = [AFHTTPRequestOperationManager manager];
+        httpManager.requestSerializer.timeoutInterval = 5;
+        httpManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"text/json",nil];
+
+    }
+    
+    return self;
 }
 
 - (void) GET:(NSString *)resourceURL success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure {
@@ -42,12 +52,10 @@ AFHTTPRequestOperationManager *httpManager;
     NSString *url = [self.baseURL stringByAppendingString:resourceURL];
     
     [httpManager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
         NSDictionary *result = (NSDictionary *)responseObject;
         success(result);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
         failure(error);
     }];
     
