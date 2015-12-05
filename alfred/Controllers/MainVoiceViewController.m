@@ -6,11 +6,11 @@
 //  Copyright © 2015 TeamYAY. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainVoiceViewController.h"
 
 #define TIME_DELAY 3.0
 
-@interface ViewController ()
+@interface MainVoiceViewController ()
 
 @property BOOL isRecording;
 
