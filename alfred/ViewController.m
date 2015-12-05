@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+#define TIME_DELAY 3.0
+
 @interface ViewController ()
 
 @property BOOL isRecording;
@@ -27,9 +29,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)voiceButtonPressed:(id)sender {
-    NSLog(@"Voice button pressed");
-    
+- (void) changeButtonImage {
     self.isRecording = !self.isRecording;
     
     UIImage *buttonImage;
@@ -41,6 +41,16 @@
     }
     
     [self.voiceButton setImage:buttonImage forState:UIControlStateNormal];
+}
+
+#pragma mark - Actions
+
+-(IBAction)voiceButtonPressed:(id)sender {
+    NSLog(@"Voice button pressed");
+    [self changeButtonImage];
+    
+    [self performSelector:@selector(changeButtonImage) withObject:nil afterDelay:TIME_DELAY];
+    
 }
 
 @end
