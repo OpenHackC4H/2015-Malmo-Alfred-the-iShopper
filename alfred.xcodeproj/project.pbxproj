@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		303503436010E1322155ECA9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D8FFFAD933E930A55758A1 /* libPods.a */; };
 		3D2C9A991C1226E500ED4513 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2C9A981C1226E500ED4513 /* main.m */; };
 		3D2C9A9C1C1226E500ED4513 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2C9A9B1C1226E500ED4513 /* AppDelegate.m */; };
 		3D2C9A9F1C1226E500ED4513 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2C9A9E1C1226E500ED4513 /* ViewController.m */; };
@@ -53,6 +54,9 @@
 		3D2C9ABB1C1226E500ED4513 /* alfredUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = alfredUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D2C9ABF1C1226E500ED4513 /* alfredUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = alfredUITests.m; sourceTree = "<group>"; };
 		3D2C9AC11C1226E500ED4513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		517A3FAD72DE1125B651692B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		53CCFFE7879B495104FAA51E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B1D8FFFAD933E930A55758A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				303503436010E1322155ECA9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +92,8 @@
 				3D2C9AB31C1226E500ED4513 /* alfredTests */,
 				3D2C9ABE1C1226E500ED4513 /* alfredUITests */,
 				3D2C9A951C1226E500ED4513 /* Products */,
+				E7D934998CDD352F7C9656F5 /* Pods */,
+				7B4C2621F80950687534E24A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +150,23 @@
 			path = alfredUITests;
 			sourceTree = "<group>";
 		};
+		7B4C2621F80950687534E24A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1D8FFFAD933E930A55758A1 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7D934998CDD352F7C9656F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				517A3FAD72DE1125B651692B /* Pods.debug.xcconfig */,
+				53CCFFE7879B495104FAA51E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +174,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D2C9AC41C1226E500ED4513 /* Build configuration list for PBXNativeTarget "alfred" */;
 			buildPhases = (
+				46039266BED4A782333A6D5C /* Check Pods Manifest.lock */,
 				3D2C9A901C1226E500ED4513 /* Sources */,
 				3D2C9A911C1226E500ED4513 /* Frameworks */,
 				3D2C9A921C1226E500ED4513 /* Resources */,
+				4D5015165B32862B3E24769B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -267,6 +293,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46039266BED4A782333A6D5C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4D5015165B32862B3E24769B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D2C9A901C1226E500ED4513 /* Sources */ = {
@@ -413,6 +472,7 @@
 		};
 		3D2C9AC51C1226E500ED4513 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 517A3FAD72DE1125B651692B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = alfred/Info.plist;
@@ -424,6 +484,7 @@
 		};
 		3D2C9AC61C1226E500ED4513 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53CCFFE7879B495104FAA51E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = alfred/Info.plist;
@@ -500,6 +561,7 @@
 				3D2C9AC61C1226E500ED4513 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D2C9AC71C1226E500ED4513 /* Build configuration list for PBXNativeTarget "alfredTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +570,7 @@
 				3D2C9AC91C1226E500ED4513 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D2C9ACA1C1226E500ED4513 /* Build configuration list for PBXNativeTarget "alfredUITests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +579,7 @@
 				3D2C9ACC1C1226E500ED4513 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
