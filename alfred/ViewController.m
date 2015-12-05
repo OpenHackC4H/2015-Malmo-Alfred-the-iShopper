@@ -24,4 +24,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)voiceButtonPressed:(id)sender {
+    NSLog(@"Voice button pressed");
+    
+}
+
 @end

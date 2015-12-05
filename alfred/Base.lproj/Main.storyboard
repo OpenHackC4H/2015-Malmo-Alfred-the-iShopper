@@ -20,6 +20,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fU-0r-GIM">
                                 <rect key="frame" x="154" y="154" width="292" height="292"/>
                                 <state key="normal" image="greenButton"/>
+                                <connections>
+                                    <action selector="voiceButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eQK-Lr-A5b"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -28,6 +31,9 @@
                             <constraint firstItem="3fU-0r-GIM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vdt-G1-w64"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="voiceButton" destination="3fU-0r-GIM" id="I05-Fa-ynh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

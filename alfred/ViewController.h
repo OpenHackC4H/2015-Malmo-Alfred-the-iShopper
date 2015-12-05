@@ -10,6 +10,10 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *voiceButton;
+
+- (IBAction)voiceButtonPressed:(id)sender;
+
 
 @end
 
