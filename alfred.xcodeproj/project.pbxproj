@@ -13,7 +13,7 @@
 		3D2C9A9F1C1226E500ED4513 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2C9A9E1C1226E500ED4513 /* ViewController.m */; };
 		3D2C9AA21C1226E500ED4513 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D2C9AA01C1226E500ED4513 /* Main.storyboard */; };
 		3D2C9AA51C1226E500ED4513 /* alfred.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D2C9AA31C1226E500ED4513 /* alfred.xcdatamodeld */; };
-		3D2C9AA71C1226E500ED4513 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D2C9AA61C1226E500ED4513 /* Assets.xcassets */; };
+		3D2C9AA71C1226E500ED4513 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D2C9AA61C1226E500ED4513 /* Images.xcassets */; };
 		3D2C9AAA1C1226E500ED4513 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D2C9AA81C1226E500ED4513 /* LaunchScreen.storyboard */; };
 		3D2C9AB51C1226E500ED4513 /* alfredTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2C9AB41C1226E500ED4513 /* alfredTests.m */; };
 		3D2C9AC01C1226E500ED4513 /* alfredUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2C9ABF1C1226E500ED4513 /* alfredUITests.m */; };
@@ -45,7 +45,7 @@
 		3D2C9A9E1C1226E500ED4513 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3D2C9AA11C1226E500ED4513 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D2C9AA41C1226E500ED4513 /* alfred.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = alfred.xcdatamodel; sourceTree = "<group>"; };
-		3D2C9AA61C1226E500ED4513 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D2C9AA61C1226E500ED4513 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3D2C9AA91C1226E500ED4513 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D2C9AAB1C1226E500ED4513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D2C9AB01C1226E500ED4513 /* alfredTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = alfredTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,7 +114,7 @@
 				3D2C9A9A1C1226E500ED4513 /* AppDelegate.h */,
 				3D2C9A9B1C1226E500ED4513 /* AppDelegate.m */,
 				3D2C9AA01C1226E500ED4513 /* Main.storyboard */,
-				3D2C9AA61C1226E500ED4513 /* Assets.xcassets */,
+				3D2C9AA61C1226E500ED4513 /* Images.xcassets */,
 				3D2C9AA81C1226E500ED4513 /* LaunchScreen.storyboard */,
 				3D2C9AAB1C1226E500ED4513 /* Info.plist */,
 				3D2C9AA31C1226E500ED4513 /* alfred.xcdatamodeld */,
@@ -126,6 +126,7 @@
 		3D2C9A971C1226E500ED4513 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3D8B55971C1324580000041A /* Assets */,
 				3D2C9A981C1226E500ED4513 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -156,6 +157,13 @@
 				3D2C9A9E1C1226E500ED4513 /* ViewController.m */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3D8B55971C1324580000041A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		7B4C2621F80950687534E24A /* Frameworks */ = {
@@ -281,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D2C9AAA1C1226E500ED4513 /* LaunchScreen.storyboard in Resources */,
-				3D2C9AA71C1226E500ED4513 /* Assets.xcassets in Resources */,
+				3D2C9AA71C1226E500ED4513 /* Images.xcassets in Resources */,
 				3D2C9AA21C1226E500ED4513 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
