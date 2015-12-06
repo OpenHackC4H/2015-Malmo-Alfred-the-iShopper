@@ -1,0 +1,20 @@
+**Team Name: **
+Alfred EyeShopper
+Team Members:
+Kamran Manzoor (kami.manzoor@gmail.com)
+Philip Christiansen (philipchristiansen@gmail.com)
+Sebastian Axelsen (s.axelsen89@gmail.com)
+
+** Description **
+
+This project is developed during OpenHack (4-6 Dec 2015, @Malmo). The purpose of this project is to create an application to assist blind people in shopping. Currently the application is developed for iOS. The aim was to use Beacons (iBeacons) technology in this project. 
+
+The user interacts with the application using his/her voice. The front end transmits the user's request as audio data to back-end for processing. The back-end after receiving audio data, uses Bluemix "Speech to Text" service in order to get the corresponding text. The text is then passed on to the Bluemix Alchemi service in order to get the keywords (interested items) out of the text. The back-end then finds the location of interested items using Beacons locations and sends back to front-end in form of audio (using Bluemix Text to Speech). Finally, the application guides the user to his/her interested items.
+
+The code for the front-end is available in the following git repo:
+https://github.com/saxelsen89/alfred-ios
+
+The code for the back-end is available in the following git repo:
+https://github.com/philter87/alfred-backend
+
+The code in the repositories is licensed under MIT license. Please see license.txt in the repositories for more details.
