@@ -49,10 +49,8 @@
 
 - (IBAction)voiceButtonPressed:(id)sender {
     [self recordInput];
-    [self getRecording];
     [self postBeacons];
     [self uploadRecording];
-    [self performSelector:@selector(playResult) withObject:nil afterDelay:2.0];
 }
 
 - (void) getRecording {
@@ -85,7 +83,7 @@
     NSString *recordingPath = [[NSBundle mainBundle] pathForResource:@"bread_query" ofType: @"flac"];
     NSData *recordingData = [[NSFileManager defaultManager] contentsAtPath:recordingPath];
     
-    [restManager upload:@"/speech-to-text/upload" data:recordingData delegate:self];
+    [restManager upload:@"/speech-to-text/upload-speech" data:recordingData delegate:self];
 }
 
 - (void) recordInput {
@@ -93,9 +91,7 @@
     [self changeButtonImage];
 }
 
-- (void) playResult {
-    self.isRecording = NO;
-    [self changeButtonImage];
+- (void) playMockResult {
     
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"bread_result" ofType: @"mp3"];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
@@ -103,13 +99,39 @@
     [[AudioManager sharedManager] playSoundForFileURL:soundFileURL withDelegate:nil];
 }
 
+- (void) playResult:(NSData *) data {
+    NSError *error;
+    [[AudioManager sharedManager] playData:data delegate:nil];
+    if(error) {
+    }
+}
+
 - (void)requestFinished:(ASIHTTPRequest *)request {
     NSString *receivedString = [request responseString];
     NSLog(@"Upload request succeeded: %@", [receivedString description]);
+    
+    NSData *responseData = [request responseData];
+    
+    //[self playResult:responseData];
+    [self playMockResult];
+    self.isRecording = NO;
+    [self changeButtonImage];
 }
 - (void)requestFailed:(ASIHTTPRequest *)request {
     NSString *receivedString = [request responseString];
     NSLog(@"Upload request failed. Response: %@", receivedString);
+    
+    [self playError];
+    self.isRecording = NO;
+    [self changeButtonImage];
+
+}
+
+- (void) playError {
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"alfred_error" ofType: @"mp3"];
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    
+    [[AudioManager sharedManager] playSoundForFileURL:soundFileURL withDelegate:nil];
 
 }
 

@@ -37,6 +37,18 @@ static AudioManager *manager;
     return self;
 }
 
+- (void) playData:(NSData *) data delegate:(id) delegate{
+    NSError *error;
+    self.audioPlayer = nil;
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithData:data error:&error];
+    self.audioPlayer.delegate = delegate;
+    [self.audioPlayer play];
+    
+    if(error) {
+        NSLog(@"%@", error);
+    }
+}
+
 - (void) playSoundForFileURL:(NSURL *) fileURL withDelegate:(id) delegate {
     
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL

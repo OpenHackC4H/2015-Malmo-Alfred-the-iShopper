@@ -14,4 +14,6 @@
 
 - (void) playSoundForFileURL:(NSURL *) fileURL withDelegate:(id) delegate;
 
+- (void) playData:(NSData *) data delegate:(id) delegate;
+
 @end
