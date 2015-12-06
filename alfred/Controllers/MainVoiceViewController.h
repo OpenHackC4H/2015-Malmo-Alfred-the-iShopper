@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ASIHTTPRequest/ASIHTTPRequestDelegate.h>
 
-@interface MainVoiceViewController : UIViewController
+@interface MainVoiceViewController : UIViewController <ASIHTTPRequestDelegate>
+
 
 @property (weak, nonatomic) IBOutlet UIButton *voiceButton;
 

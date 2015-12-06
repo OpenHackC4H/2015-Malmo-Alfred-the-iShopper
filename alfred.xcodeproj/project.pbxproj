@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		303503436010E1322155ECA9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D8FFFAD933E930A55758A1 /* libPods.a */; };
+		3D1B898A1C143944008FE0E5 /* bread_query.flac in Resources */ = {isa = PBXBuildFile; fileRef = 3D1B89891C143944008FE0E5 /* bread_query.flac */; };
 		3D2C9A991C1226E500ED4513 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2C9A981C1226E500ED4513 /* main.m */; };
 		3D2C9A9C1C1226E500ED4513 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2C9A9B1C1226E500ED4513 /* AppDelegate.m */; };
 		3D2C9A9F1C1226E500ED4513 /* MainVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2C9A9E1C1226E500ED4513 /* MainVoiceViewController.m */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D1B89891C143944008FE0E5 /* bread_query.flac */ = {isa = PBXFileReference; lastKnownFileType = file; path = bread_query.flac; sourceTree = "<group>"; };
 		3D2C9A941C1226E500ED4513 /* alfred.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alfred.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D2C9A981C1226E500ED4513 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3D2C9A9A1C1226E500ED4513 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		3D8B55971C1324580000041A /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				3D1B89891C143944008FE0E5 /* bread_query.flac */,
 				3D8B55981C1324BA0000041A /* bread_result.mp3 */,
 			);
 			path = Assets;
@@ -319,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D2C9AAA1C1226E500ED4513 /* LaunchScreen.storyboard in Resources */,
+				3D1B898A1C143944008FE0E5 /* bread_query.flac in Resources */,
 				3D2C9AA71C1226E500ED4513 /* Images.xcassets in Resources */,
 				3D8B55991C1324BA0000041A /* bread_result.mp3 in Resources */,
 				3D2C9AA21C1226E500ED4513 /* Main.storyboard in Resources */,

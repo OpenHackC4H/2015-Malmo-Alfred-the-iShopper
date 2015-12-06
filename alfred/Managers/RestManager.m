@@ -8,6 +8,7 @@
 
 #import "RestManager.h"
 #import <AFNetworking/AFNetworking.h>
+#import <ASIHTTPRequest/ASIFormDataRequest.h>
 
 #
 
@@ -40,7 +41,7 @@ AFHTTPRequestOperationManager *httpManager;
         self.baseURL = @"http://alfred.eu-gb.mybluemix.net";
         httpManager = [AFHTTPRequestOperationManager manager];
         httpManager.requestSerializer.timeoutInterval = 5;
-        httpManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"text/json",nil];
+        httpManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"application/json",nil];
 
     }
     
@@ -61,10 +62,63 @@ AFHTTPRequestOperationManager *httpManager;
     
 }
 
-- (void) POST:(NSString *)resourceURL data:(NSData *) data success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure {
-    NSLog(@"Method not implemented yet");
-}
+- (void) POST:(NSString *)resourceURL data:(NSData *)data success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure {
+    
+    NSString *url = [self.baseURL stringByAppendingString:resourceURL];
+    
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [[NSURL alloc] initWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:data];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id result) {
+        result = (NSDictionary *) result;
+        success(result);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+    [operation start];
 
+}
+/*
+- (void) upload:(NSString *)resourceURL data:(NSData *)data success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure {
+    
+    NSString *url = [self.baseURL stringByAppendingString:resourceURL];
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [[NSURL alloc] initWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    //[request setValue:@"multipart/form-data; boundary=" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:data];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id result) {
+        result = (NSDictionary *) result;
+        success(result);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+    [operation start];
+    
+}
+ */
+
+- (void) upload:(NSString *)resourceURL data:(NSData *)data delegate:(id<ASIHTTPRequestDelegate>) delegate {
+    NSString *url = [self.baseURL stringByAppendingString:resourceURL];
+    NSURL *requestURL = [[NSURL alloc] initWithString:url];
+    
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:requestURL];
+    request.delegate = delegate;
+    
+    [request addPostValue:@"bread_query.flac" forKey:@"name"];
+    [request addData:data withFileName:@"bread_query.flac" andContentType:@"audio/flac" forKey:@"file"];
+    [request startAsynchronous];
+}
 
 
 @end
